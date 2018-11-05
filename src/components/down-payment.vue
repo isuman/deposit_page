@@ -180,10 +180,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="alert alert-danger" role="alert">
+                            <!-- <div class="alert alert-danger" role="alert">
                             ชื่อ {{username}} บริษัท {{company}}
-                            </div>
-                            <div class="tax-bottom-part col">
+                            </div> -->
+                            <div class="tax-bottom-part tax-head">
                                 <button class="btn btn-success">บันทึก</button>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="table-responsive">          
-                                    <table class="table">
+                                    <table class="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th>เลขที่ใบมัดจำ</th>
@@ -213,7 +213,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr v-for="row in depositSerial"  @click="selectDeposit(row.serialNo)">
+                                            <tr class="table-pointer" v-for="row in depositSerial"  @click="selectDeposit(row.id)">
                                                 <td>{{row.serialNo}}</td>
                                                 <td>{{row.taxNo}}</td>
                                                 <td>{{row.customerID}}</td>
@@ -227,7 +227,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" @click="selectDeposit(row.serialNo)">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     
@@ -251,34 +251,37 @@ export default {
       username: "",
       company: "",
       date: "",
-      depositSerial:[
-          {
-            serialNo: '51234',
-            taxNo: 'SE5647',
-            customerID: 'S4545',
-            documentDate: '2018-11-01',
-            taxApplyDate: '2018-11-01',
-            billerName: 'Ariya Indhabhandhu',
-            subNo: 'ASE234'
-          },
-          {
-            serialNo: '31279',
-            taxNo: 'SE5487',
-            customerID: 'S4566',
-            documentDate: '2018-12-01',
-            taxApplyDate: '2018-12-01',
-            billerName: 'Ariya Indhabhandhu',
-            subNo: 'ASE232'
-          },
-          {
-            serialNo: '75424',
-            taxNo: 'SE7896',
-            customerID: 'S4545',
-            documentDate: '2018-11-05',
-            taxApplyDate: '2018-11-05',
-            billerName: 'Ariya Indhabhandhu',
-            subNo: 'ASE215'
-          }
+      depositSerial: [
+        {
+          id: "1",
+          serialNo: "51234",
+          taxNo: "SE5647",
+          customerID: "S4545",
+          documentDate: "2018-11-01",
+          taxApplyDate: "2018-11-01",
+          billerName: "Ariya Indhabhandhu",
+          subNo: "ASE234"
+        },
+        {
+          id: "2",
+          serialNo: "31279",
+          taxNo: "SE5487",
+          customerID: "S4566",
+          documentDate: "2018-12-01",
+          taxApplyDate: "2018-12-01",
+          billerName: "Ariya Indhabhandhu",
+          subNo: "ASE232"
+        },
+        {
+          id: "3",
+          serialNo: "75424",
+          taxNo: "SE7896",
+          customerID: "S4545",
+          documentDate: "2018-11-05",
+          taxApplyDate: "2018-11-05",
+          billerName: "Ariya Indhabhandhu",
+          subNo: "ASE215"
+        }
       ]
     };
   },
@@ -308,7 +311,7 @@ export default {
       );
     },
     selectDeposit(e) {
-        
+      alert(this.depositSerial[e-1].serialNo);
     }
   },
   computed: {
@@ -324,7 +327,7 @@ export default {
 
 <style>
 .big-margin {
-    margin-top: 4%
+  margin-top: 4%;
 }
 .deposit-border {
   border-color: #0275d8;
@@ -335,17 +338,17 @@ export default {
   background-color: #0275d8;
   color: aliceblue;
   text-align: left;
-  font-size: 24px
+  font-size: 24px;
 }
 .icon-margin {
-    padding: 2%
+  padding: 2%;
 }
 .tax-header {
   margin-bottom: 2.5%;
   background-color: #c73a03;
   color: aliceblue;
   text-align: right;
-  font-size: 24px
+  font-size: 24px;
 }
 .information-part {
   margin-bottom: 5%;
@@ -371,5 +374,8 @@ export default {
 }
 .tax-border {
   padding: 0% 4%;
+}
+.table-pointer {
+    cursor: pointer;
 }
 </style>

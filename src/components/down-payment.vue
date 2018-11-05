@@ -184,7 +184,7 @@
                             ชื่อ {{username}} บริษัท {{company}}
                             </div> -->
                             <div class="tax-bottom-part tax-head">
-                                <button class="btn btn-success">บันทึก</button>
+                                <button class="btn btn-primary">บันทึก</button>
                             </div>
                         </div>
                     </div>
@@ -227,7 +227,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     
@@ -345,7 +345,7 @@ export default {
 }
 .tax-header {
   margin-bottom: 2.5%;
-  background-color: #c73a03;
+  background-color: #0275d8;
   color: aliceblue;
   text-align: right;
   font-size: 24px;

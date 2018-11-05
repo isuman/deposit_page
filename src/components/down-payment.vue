@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <div class="modal fade" id="searchModal">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
     
                         <!-- Modal content-->
                         <div class="modal-content">
@@ -199,7 +199,32 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                                <p>Some text in the modal.</p>
+                                <div class="table-responsive">          
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>เลขที่ใบมัดจำ</th>
+                                                <th>เลขที่ใบกำกับภาษี</th>
+                                                <th>รหัสลูกค้า</th>
+                                                <th>วันที่ออกเอกสาร</th>
+                                                <th>วันที่ใบกำกับภาษี</th>
+                                                <th>ชื่อในการออกบิล</th>
+                                                <th>เลขที่ใบจอง</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="row in depositSerial"  @click="selectDeposit(row.serialNo)">
+                                                <td>{{row.serialNo}}</td>
+                                                <td>{{row.taxNo}}</td>
+                                                <td>{{row.customerID}}</td>
+                                                <td>{{row.documentDate}}</td>
+                                                <td>{{row.taxApplyDate}}</td>
+                                                <td>{{row.billerName}}</td>
+                                                <td>{{row.subNo}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -225,7 +250,36 @@ export default {
       click: false,
       username: "",
       company: "",
-      date: ""
+      date: "",
+      depositSerial:[
+          {
+            serialNo: '51234',
+            taxNo: 'SE5647',
+            customerID: 'S4545',
+            documentDate: '2018-11-01',
+            taxApplyDate: '2018-11-01',
+            billerName: 'Ariya Indhabhandhu',
+            subNo: 'ASE234'
+          },
+          {
+            serialNo: '31279',
+            taxNo: 'SE5487',
+            customerID: 'S4566',
+            documentDate: '2018-12-01',
+            taxApplyDate: '2018-12-01',
+            billerName: 'Ariya Indhabhandhu',
+            subNo: 'ASE232'
+          },
+          {
+            serialNo: '75424',
+            taxNo: 'SE7896',
+            customerID: 'S4545',
+            documentDate: '2018-11-05',
+            taxApplyDate: '2018-11-05',
+            billerName: 'Ariya Indhabhandhu',
+            subNo: 'ASE215'
+          }
+      ]
     };
   },
   methods: {
@@ -252,6 +306,9 @@ export default {
           console.log(error);
         }
       );
+    },
+    selectDeposit(e) {
+        
     }
   },
   computed: {

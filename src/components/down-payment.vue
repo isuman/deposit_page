@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-8">
+                <div class="col-12 col-md-12 col-lg-8 big-margin">
                     <div class="card">
                         <div class="card-header deposit-header">
                                 ใบรับเงินมัดจำ
@@ -13,7 +13,7 @@
                                     <div class="form-group row">
                                         <p class="article-set col-4">ค้นหา:</p>
                                         <div class="col-7  text-left" data-toggle="modal" data-target="#searchModal">
-                                            <button class="fas fa-search icon-margin"></button>
+                                            <button class="btn btn-primary fas fa-search icon-margin"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-12 col-md-12 col-lg-4 big-margin">
                     <div class="card">
                         <div class="card-header tax-header">
                             สรุปยอดเงิน
@@ -227,7 +227,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" @click="selectDeposit(row.serialNo)">Close</button>
                             </div>
                         </div>
                     
@@ -323,6 +323,9 @@ export default {
 </script>
 
 <style>
+.big-margin {
+    margin-top: 4%
+}
 .deposit-border {
   border-color: #0275d8;
   padding: 0% 2%;
